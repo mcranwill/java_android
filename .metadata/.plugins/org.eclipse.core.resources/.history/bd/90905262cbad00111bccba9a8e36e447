@@ -1,0 +1,207 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class apples {
+	public static void main(String args[]){
+		int bucky[][]={{3,4,5},{6,7,8,12}};
+		int secondarray[][]={{20,12,31},{4},{4,5}};
+		
+		AppleJacks newObj = new AppleJacks();
+		
+		
+		// Math class System.out.println(Math.sqrt(.912));
+		/*function calls
+		display(bucky);
+		System.out.println(average(12,432,542,62,64,12,64,74,23));
+		display(secondarray);
+		 print_array(get_new_array(12));
+		dating_game();
+		switch_ex();
+		change(bucky);
+		for(int y : bucky)
+			System.out.println(y);
+		do_while_ex();
+		while_ex(3);*/
+	}
+	//Important
+	//working with arrays
+	public static void display(int x[][]){
+		for(int r=0;r<x.length;r++){
+			for(int c=0;c<x[r].length;c++){
+				System.out.print(x[r][c]+"\t");
+			}
+			System.out.println("\n");
+		}
+	}
+	public static void change(int x[]){
+		for(int s=0;s<x.length;s++)
+			x[s]+=3;
+		
+	}
+	public static void enhanced_for_statement(){
+		//like for x in a:
+		int freq[] = {3,12,1,36,12};
+		int total=0;
+		
+		for(int x: freq)
+			total+=x;
+		System.out.println(total);
+	}
+	public static void more_rand_stuff(){
+		Random rand=new Random();
+		int freq[] = new int[7];
+		for(int i =0;i<500;i++){
+			++freq[1+rand.nextInt(6)];
+		}
+		System.out.println("Face\tFrequency");
+		for(int face=1;face<freq.length;face++){
+			System.out.println(face + "\t" + freq[face]);
+		}
+	}
+	public static void print_array(int temp[]){
+		System.out.println("Index\tValue");
+		for(int i=0;i<temp.length;i++)
+			System.out.println(i +"\t"+temp[i]);
+		
+	}
+	public static int[] get_new_array(int size){
+		int temp_arra[] = new int[size];
+		
+		for(int i=0;i<size;i++)
+			temp_arra[i]=i;
+		return temp_arra;
+	}
+	//working with random function
+	public static int average(int...numbers){
+		int total=0;
+		for(int x:numbers)
+			total+=x;
+		return total/numbers.length;
+	}
+	public void dice_emul(){
+		Random dice = new Random();
+		int num;
+		
+		for(int i=0; i<10;i++){
+			num = dice.nextInt(6);
+			System.out.println("number is " + ++num);
+		}
+	}
+	//types of loop structure
+	public void do_while_ex(){
+		int counter =0;
+		do{
+			System.out.println(counter);
+			counter++;
+		}while(counter<=10);
+	}
+	public void compound_interest_for_loop(){
+		double amount=0, principal=10000, rate=.01;
+		for(int day=1;day<=20;day++){
+			amount=principal*Math.pow(1+rate,day);
+			System.out.println(day + "  " + amount);
+		}
+	}
+	public static void really_cool_bool(){
+		int age =40;
+		System.out.println(age> 50 ? "Your are old" : "You are young");
+	}
+	public static void while_ex(int reach){
+		//while and for loops
+		int iter;
+		for(int i=0;i<2;i++){
+			iter=0;
+			while(iter<reach){
+				System.out.println("Value of iter is " + iter);
+				iter++;
+			}
+		}
+	}
+	public static void switch_ex(){
+		int age=21;
+		
+		switch(age){
+		case 1:
+			System.out.println("You can crawl.");
+			break;
+		case 2:
+			System.out.println("You can talk.");
+			break;
+		case 21:
+			System.out.println("You can drink.");
+			break;
+		default:
+			System.out.println("You are dead");
+		}
+	}
+	public static void calc_avg(){
+		Scanner input = new Scanner(System.in);
+		int total=0, counter=0, grade=0;
+		double average;
+		
+		while(counter<10){
+			grade=input.nextInt();
+			total+=grade;
+			counter++;
+		}
+		average=total/counter;
+		System.out.println("average is " + average);
+	}
+	/*public static void girlFriend_ex(){
+		Scanner input = new Scanner(System.in);
+		System.out.println("Please enter the name of your first girlfriend:");
+		AppleJacks printUsers = new AppleJacks("Nicole");
+		String tem = input.nextLine();
+		printUsers.setName(tem);
+		printUsers.saying();
+	}*/
+	/*public static void simple_msg(){
+		Scanner input = new Scanner(System.in);
+		AppleJacks newObject = new AppleJacks("Camelia");
+		newObject.simpleMessage(input.nextLine());
+	}*/
+	public static void dating_game(){
+		//basic if-else statement
+		int boy,girl;
+		boy=18; girl=27;
+		if(boy >10 && girl <40)
+			System.out.println("You can enter");
+		else
+			System.out.println("You cannot enter.");
+		
+		int test = 3;
+		if(test == 3)
+			System.out.println(3);
+		else
+			System.out.println("not 3");
+	}
+	public static double calculator(){
+		Scanner info = new Scanner(System.in);
+		System.out.println(info.next());
+		double fnum, snum;
+		System.out.println("Enter first number:");
+		fnum = info.nextDouble();
+		System.out.println("Enter second number:");
+		snum = info.nextDouble();
+		System.out.println(fnum+snum);
+		//Todo implement a key to get an operation from user.
+				//System.out.println("Enter your operation:");
+		return fnum+snum;
+	}
+	public static void print_simple(){
+		System.out.println("Hello Youtube.");
+		System.out.print(divide(4.0,3.0)+" hi\n");
+		System.out.print("farkas");
+	}
+	public static double divide(double d, double e){
+		return d/e;
+	}
+	public static double average(double array[],int elements){
+		double accum=0;
+		for(int i=0;i < elements-1;i++){
+			accum += array[i];
+		}
+		
+		return accum/elements;
+	}
+}

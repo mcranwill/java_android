@@ -1,0 +1,49 @@
+package com.newboston.mike;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Bundle;
+
+public class Splash extends Activity {
+
+	MediaPlayer ourSound;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		// TODO Auto-generated method stub
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.splash);
+		ourSound = MediaPlayer.create(Splash.this, R.raw.test_cbr);
+		ourSound.start();
+		Thread timer = new Thread() {
+			public void run() {
+				try {
+					sleep(5000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} finally {
+					try {
+						Class ourClass = Class.forName("com.newboston.mike.Menu");
+						Intent ourIntent = new Intent(Splash.this, ourClass);
+						startActivity(ourIntent);
+					} catch (ClassNotFoundException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		};
+		timer.start();
+	}
+
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		if (ourSound.isPlaying()) {
+			ourSound.release();
+		}
+		finish();
+	}
+
+}

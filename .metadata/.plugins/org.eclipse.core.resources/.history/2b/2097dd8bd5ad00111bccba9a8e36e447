@@ -1,0 +1,44 @@
+
+public class AppleJacks {
+	public void simpleMessage(String name){
+		System.out.println("Hello " + name);
+	}
+	private String girlName;
+	private int hour;
+	private int minute;
+	private int second;
+	
+	
+	public String toMilitary(){
+		return String.format("%02d:%02d:%02d", hour,minute,second);
+	}
+	public void setName(String name){
+		girlName=name;
+	}
+	public String getName(){
+		return girlName;
+	}
+	public void saying(){
+		System.out.printf("Your first girlfriend was %s\n", getName() );
+	}
+	public AppleJacks(String name){
+		girlName=name;
+	}
+	public AppleJacks(){
+		this(0,0,0);
+	}
+	public AppleJacks(int h){
+		this(h,0,0);
+	}
+	public AppleJacks(int h,int m){
+		this(h,m,0);
+	}
+	public AppleJacks(int h,int m,int s){
+		setTime(h,m,s);
+	}
+	public void setTime(int h,int m,int s){
+		this.hour = ((h>=0 && h < 24) ? h : 0);
+		this.minute = ((m>=0 && m < 60) ? m : 0);
+		this.second = ((s>=0 && s<60) ? s : 0);
+	}
+}

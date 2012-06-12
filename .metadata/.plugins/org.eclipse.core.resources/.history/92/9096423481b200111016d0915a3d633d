@@ -1,0 +1,13 @@
+package com.newboston.mike;
+
+import android.app.Activity;
+import android.os.Bundle;
+
+public class Splash extends Activity{
+
+	@Override
+	protected void onCreate(Bundle savedInstance Hi){
+		super.onCreate(Hi);
+		setContentView(R.layout.splash);
+	}
+}
